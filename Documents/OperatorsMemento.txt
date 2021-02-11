@@ -1,0 +1,28 @@
+Memento des operateurs :
+
+= // assignation ("set")
+
+// comparaison
+== // equal
+!= // not equal
+<
+<=
+>
+>=
+
+// raccourci : valeur de gauche + valeur de droite
++=
+-=
+*=
+/=
+
+boolean operator : 
+&& // ET
+|| // OU
+
+à ne pas confondre avec les bitmask operators (!= à boolean operator)
+&
+|
+^
+
+(et leurs variantes &= ^=, etc...)
