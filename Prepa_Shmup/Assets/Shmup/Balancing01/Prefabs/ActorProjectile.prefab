@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7103207439255743009}
   - component: {fileID: 2038024044704475628}
   - component: {fileID: 6036399080972648448}
+  - component: {fileID: -4107811161836546843}
   m_Layer: 0
   m_Name: ActorProjectile
   m_TagString: Untagged
@@ -48,7 +49,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _moveSpeed: 3
   _damage: 1
-  _selfDestructDelay: 10
+  _selfDestructDelay: 3
+  _addToProjectileList: 1
+  DestroyTarget:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!54 &2038024044704475628
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -83,7 +88,33 @@ MonoBehaviour:
       m_Calls: []
   Destroyed:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -4107811161836546843}
+        m_MethodName: DoInstantiate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &-4107811161836546843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8610025724127763333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9662a776491202e4cab116f90fe5555f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _particleSystem: {fileID: 5532242907850804179, guid: 32b172170a1f73f4d883323ec9b3e938,
+    type: 3}
+  _copyInstancierRotation: 0
 --- !u!1 &8610025724532369600
 GameObject:
   m_ObjectHideFlags: 0

@@ -59,6 +59,9 @@ public class GameManager : MonoBehaviour
 	private List<Actor> _actors = new List<Actor>();
 
 	[System.NonSerialized]
+	private List<Projectile> _projectiles = new List<Projectile>();
+
+	[System.NonSerialized]
 	private bool _isRunning = false;
 
 	[System.NonSerialized]
@@ -79,6 +82,8 @@ public class GameManager : MonoBehaviour
 	{
 		_isRunning = true;
 		_waveManager.StartFirstWave();
+		_player.Activate(true);
+
 		if (_tiler != null)
 		{
 			_tiler.StartTiler();
@@ -88,12 +93,14 @@ public class GameManager : MonoBehaviour
 	public void Pause()
 	{
 		_isRunning = false;
+		_player.Activate(false);
 		Time.timeScale = 0;
 	}
 
 	public void Resume()
 	{
 		_isRunning = true;
+		_player.Activate(true);
 		Time.timeScale = 1;
 	}
 
@@ -148,6 +155,48 @@ public class GameManager : MonoBehaviour
 		_actors.Remove(actor);
 	}
 
+	public void AddProjectile(Projectile projectile)
+	{
+		if (_projectiles.Contains(projectile) == false)
+		{
+			_projectiles.Add(projectile);
+		}
+	}
+
+	public void RemoveProjectile(Projectile projectile)
+	{
+		_projectiles.Remove(projectile);
+	}
+
+	public void DestroyAllActorsAndProjectiles()
+	{
+		DestroyAllActors();
+		DestroyAllProjectiles();
+	}
+
+	public void DestroyAllActors()
+	{
+		for (int i = _actors.Count - 1; i >= 0; --i)
+		{
+			Damageable damageable = _actors[i].GetComponent<Damageable>();
+			damageable.DoDamage(9999);
+		}
+	}
+
+	public void DestroyAllProjectiles()
+	{
+		for (int i = _projectiles.Count - 1; i >= 0; --i)
+		{
+			Damageable damageable = _projectiles[i].GetComponent<Damageable>();
+			damageable.DoDamage(9999);
+		}
+	}
+
+	private void Awake()
+	{
+		_player.Activate(false);
+	}
+
 	private void Update()
 	{
 		if (_isRunning == true)
@@ -155,12 +204,8 @@ public class GameManager : MonoBehaviour
 			_timeInSeconds += Time.deltaTime;
 			_timerMenu.UpdateTimer(_timeInSeconds);
 			_waveManager.UpdateWaves();
-			if (_player != null)
-			{
-				_player.UpdatePlayer();
-			}
 
-			if (_waitingForEndGame == true && _actors.Count == 0)
+			if (_waitingForEndGame == true && _actors.Count == 0 && _projectiles.Count == 0)
 			{
 				ActivateEndGame();
 			}

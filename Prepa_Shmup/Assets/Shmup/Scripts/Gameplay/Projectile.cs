@@ -14,6 +14,9 @@ public class Projectile : MonoBehaviour
 
 	[SerializeField]
 	private float _selfDestructDelay = 10f;
+
+	[SerializeField]
+	private bool _addToProjectileList = false;
 	#endregion Fields
 
 	#region Events
@@ -26,6 +29,19 @@ public class Projectile : MonoBehaviour
 	private void OnEnable()
 	{
 		StartCoroutine(WaitForSelfDestruct());
+
+		if (_addToProjectileList == true)
+		{
+			GameManager.Instance.AddProjectile(this);
+		}
+	}
+
+	private void OnDisable()
+	{
+		if (GameManager.HasInstance == true)
+		{
+			GameManager.Instance.RemoveProjectile(this);
+		}
 	}
 
 	private void Update()

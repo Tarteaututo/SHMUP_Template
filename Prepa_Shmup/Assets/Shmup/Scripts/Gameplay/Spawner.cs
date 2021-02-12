@@ -6,18 +6,18 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
 	[SerializeField]
-	private Actor _actorPrefab = null;
-
-	[SerializeField]
 	private Path _path = null;
 
-	[SerializeField]
+	[System.NonSerialized]
+	private Actor _actorPrefab = null;
+
+	[System.NonSerialized]
 	private float _spawnRate = 1f;
 
-	[SerializeField]
+	[System.NonSerialized]
 	private float _speed = 1f;
 
-	[SerializeField]
+	[System.NonSerialized]
 	private bool _isReverse = false;
 
 	[System.NonSerialized]

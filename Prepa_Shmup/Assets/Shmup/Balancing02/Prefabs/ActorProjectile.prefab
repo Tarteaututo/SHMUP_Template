@@ -48,7 +48,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _moveSpeed: 3
   _damage: 1
-  _selfDestructDelay: 10
+  _selfDestructDelay: 3
+  _addToProjectileList: 1
+  DestroyTarget:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!54 &2038024044704475628
 Rigidbody:
   m_ObjectHideFlags: 0

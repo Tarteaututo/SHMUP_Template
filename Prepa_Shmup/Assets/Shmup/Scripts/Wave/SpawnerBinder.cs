@@ -19,18 +19,21 @@ public class SpawnerBinder
 	[SerializeField]
 	private SpawnerSettings _spawnerSettings = null;
 
+	/// <summary>
+	/// Matched with the WaveManager.Spawner list indexes.
+	/// </summary>
 	[Range(0, 10)]
 	[SerializeField]
 	private int _spawnerID = 0;
+
+	//[SerializeField]
+	//private SpawnType _spawnType = SpawnType.Default;
 
 	[SerializeField]
 	private float _spawnDuration = 5f;
 	
 	//[SerializeField]
 	//private float _secondSpawnDuration = 5f;
-
-	//[SerializeField]
-	//private SpawnType _spawnType = SpawnType.Default;
 
 	[SerializeField]
 	private float _waitBetweenSpawns = 3f;
@@ -50,8 +53,8 @@ public class SpawnerBinder
 
 	public IEnumerator Run()
 	{
+		// Commentez ces deux lignes et décommentez le reste si vous voulez utilisez plusieurs méthode de spawn.
 		_spawnerSettings.Apply(_spawner);
-
 		yield return RunMethod01();
 
 		// switch between methods

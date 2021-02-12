@@ -98,6 +98,9 @@ public class Wave : ScriptableObject
 		SpawnSession currentSpawnSession = _spawnSession[_currentSessionIndex];
 		currentSpawnSession.Stop(waveManager);
 		_currentExitTime = -1f;
+		_currentSessionIndex = 0;
+		_currentTime = 0;
+
 	}
 
 	private void OnValidate()

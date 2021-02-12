@@ -4,15 +4,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+/// <summary>
+/// Brain of the wave system. It hold a list of Waves and a list of Spawners, feeds the spawners to the wave and sequentially execute instructions found in waves.
+/// </summary>
 public class WaveManager : MonoBehaviour
 {
 	#region Fields
 	[SerializeField]
 	private float _delayBetweenWaves = 10f;
 
+	/// <summary>
+	/// Endless mode disable the win condition and go back to the first element of wave's list when the index reach the end.
+	/// </summary>
 	[SerializeField]
 	private bool _endless = false;
 
+	/// <summary>
+	/// List of wave executed in this scene. Order is important, since all waves will be executed sequentially in the same order.
+	/// </summary>
 	[SerializeField]
 	private List<Wave> _waves = null;
 
@@ -20,17 +29,17 @@ public class WaveManager : MonoBehaviour
 	[SerializeField]
 	private List<Spawner> _spawners = null;
 
-	[HideInEditorMode, ShowInInspector, ReadOnly]
+	[HideInEditorMode, ShowInInspector, ReadOnly, InlineEditor]
 	[System.NonSerialized]
 	private List<Wave> _runtimeWaves = null;
 
 	[HideInEditorMode, ShowInInspector, ReadOnly]
 	[System.NonSerialized]
-	private float _currentWaveTime = -1f;
+	private int _currentWaveIndex = 0;
 
 	[HideInEditorMode, ShowInInspector, ReadOnly]
 	[System.NonSerialized]
-	private int _currentWaveIndex = 0;
+	private float _currentWaveTime = -1f;
 
 	[HideInEditorMode, ShowInInspector, ReadOnly]
 	[System.NonSerialized]
@@ -45,10 +54,25 @@ public class WaveManager : MonoBehaviour
 	#endregion Events
 
 	#region Properties
+	/// <summary>
+	/// List of spawners. Order is important, since the index is matched with SpawnerBinder.SpawnerID
+	/// </summary>
 	public List<Spawner> Spawners => _spawners;
+
+	/// <summary>
+	/// Remaining time the wave will last.
+	/// </summary>
+	public float CurrentWaveTime => _currentWaveTime;
+
+	public int CurrentWaveIndex => _currentWaveIndex;
+
+	/// <summary>
+	/// Delay between each wave where every spawners is disabled.
+	/// </summary>
+	public float CurrentDelayBetweenWaves => _currentDelayBetweenWaves;
 	#endregion Properties
 
-
+	#region Methods
 	private void Awake()
 	{
 		_runtimeWaves = new List<Wave>(_waves.Count);
@@ -58,21 +82,19 @@ public class WaveManager : MonoBehaviour
 		}
 	}
 
-	//private void OnEnable()
-	//{
-	//	StartWave(0);
-	//}
-
-	//private void OnDisable()
-	//{
-	//	Stop();
-	//}
-
+	/// <summary>
+	/// Start the first wave at the beginning of the game.
+	/// DO NOT handle a restart.
+	/// </summary>
 	public void StartFirstWave()
 	{
-		StartWave(0);
+		_currentWaveIndex = 0;
+		StartWave(_currentWaveIndex);
 	}
 
+	/// <summary>
+	/// Update the wave instructions. To be called when the game is running.
+	/// </summary>
 	public void UpdateWaves()
 	{
 		float deltaTime = Time.deltaTime;
@@ -95,7 +117,7 @@ public class WaveManager : MonoBehaviour
 			{
 				if (_endless == true)
 				{
-					_currentWaveIndex = (int)Mathf.Repeat(_currentWaveIndex + 1, _runtimeWaves.Count - 1);
+					_currentWaveIndex = (int)Mathf.Repeat(_currentWaveIndex + 1, _runtimeWaves.Count);
 				}
 				else
 				{
@@ -120,4 +142,6 @@ public class WaveManager : MonoBehaviour
 		wave.Run(this);
 		_currentWaveTime = wave.WaveDuration;
 	}
+	#endregion Methods
+
 }
