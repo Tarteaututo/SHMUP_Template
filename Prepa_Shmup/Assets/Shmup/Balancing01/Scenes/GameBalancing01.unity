@@ -241,6 +241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 636a85646d3fe6a4483d483989315382, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gizmosColor: {r: 1, g: 1, b: 1, a: 1}
   _alwaysDrawGizmos: 0
   _path:
   - {fileID: 710424379}
@@ -384,6 +385,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 636a85646d3fe6a4483d483989315382, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gizmosColor: {r: 1, g: 1, b: 1, a: 1}
   _alwaysDrawGizmos: 0
   _path:
   - {fileID: 609010484}
@@ -812,7 +814,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh14594
+  m_Name: pb_Mesh28958
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1255,6 +1257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 636a85646d3fe6a4483d483989315382, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gizmosColor: {r: 1, g: 1, b: 1, a: 1}
   _alwaysDrawGizmos: 0
   _path:
   - {fileID: 828094518}
@@ -2288,6 +2291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 636a85646d3fe6a4483d483989315382, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gizmosColor: {r: 1, g: 1, b: 1, a: 1}
   _alwaysDrawGizmos: 0
   _path:
   - {fileID: 177229889}
@@ -2810,6 +2814,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 636a85646d3fe6a4483d483989315382, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gizmosColor: {r: 1, g: 1, b: 1, a: 1}
   _alwaysDrawGizmos: 0
   _path:
   - {fileID: 2092447240}
@@ -3120,6 +3125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 636a85646d3fe6a4483d483989315382, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gizmosColor: {r: 1, g: 1, b: 1, a: 1}
   _alwaysDrawGizmos: 0
   _path:
   - {fileID: 897662679}
@@ -3899,6 +3905,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageable: {fileID: 1646112878}
+  _destroyOther: 0
 --- !u!1 &1674474113
 GameObject:
   m_ObjectHideFlags: 0
@@ -5446,8 +5453,6 @@ MonoBehaviour:
   _endless: 0
   _waves:
   - {fileID: 11400000, guid: 805de3fd27eb4e145a473d740af788a4, type: 2}
-  - {fileID: 11400000, guid: 578b75d342295e44f8daa9d72e918891, type: 2}
-  - {fileID: 11400000, guid: bfe78873f4cbc554a9bb5b7072337af1, type: 2}
   _spawners:
   - {fileID: 923822812}
   - {fileID: 584710660}

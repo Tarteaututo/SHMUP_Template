@@ -17,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Shmup/Balancing02/Scenes/GameBalancing02.Replay.unity
     guid: f7bb84c6f8a687748b16bd55a820f94b
+  - enabled: 1
+    path: Assets/Shmup/GameBalancing03/Scenes/GameBalancing03.unity
+    guid: 04a3bfb33391aa44e8b57224f9c5ddf4
+  - enabled: 1
+    path: Assets/Shmup/GameBalancing03/Scenes/GameBalancing03.Replay.unity
+    guid: 7be0d4a1301a7924887fd67525d3b0ae
   m_configObjects: {}

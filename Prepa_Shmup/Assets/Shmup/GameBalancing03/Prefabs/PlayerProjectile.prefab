@@ -11,10 +11,9 @@ GameObject:
   - component: {fileID: 8610025724127763330}
   - component: {fileID: 7103207439255743009}
   - component: {fileID: 2038024044704475628}
-  - component: {fileID: 6036399080972648448}
-  - component: {fileID: 8933543583975469240}
+  - component: {fileID: 6587406687988433945}
   m_Layer: 0
-  m_Name: ActorProjectile
+  m_Name: PlayerProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,10 +46,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c42c1901fef902b409b5a3e63833b669, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeed: 3
+  _moveSpeed: 20
   _damage: 1
-  _selfDestructDelay: 3
-  _addToProjectileList: 1
+  _selfDestructDelay: 1
+  _addToProjectileList: 0
   DestroyTarget:
     m_PersistentCalls:
       m_Calls: []
@@ -70,7 +69,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &6036399080972648448
+--- !u!114 &6587406687988433945
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -88,33 +87,7 @@ MonoBehaviour:
       m_Calls: []
   Destroyed:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8933543583975469240}
-        m_MethodName: DoInstantiate
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &8933543583975469240
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8610025724127763333}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9662a776491202e4cab116f90fe5555f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _particleSystem: {fileID: 5532242907850804179, guid: 32b172170a1f73f4d883323ec9b3e938,
-    type: 3}
-  _copyInstancierRotation: 0
+      m_Calls: []
 --- !u!1 &8610025724532369600
 GameObject:
   m_ObjectHideFlags: 0
@@ -127,7 +100,7 @@ GameObject:
   - component: {fileID: 8610025724532369612}
   - component: {fileID: 8610025724532369615}
   - component: {fileID: 8610025724532369614}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -174,7 +147,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9dfe9388b1d15be43ac441ca21a6c580, type: 2}
+  - {fileID: 2100000, guid: d86d0ce2f579e3a4ea7bc44a3dc759f7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -206,5 +179,5 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.8
   m_Center: {x: 0, y: 0, z: 0}

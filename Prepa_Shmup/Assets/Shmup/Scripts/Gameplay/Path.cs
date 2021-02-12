@@ -2,8 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+#if UNITY_EDITOR
+using UnityEditor;
+#endif //UNITY_EDITOR
+
 public class Path : MonoBehaviour
 {
+	[SerializeField]
+	private Color _gizmosColor = Color.white;
+
 	[SerializeField]
 	private bool _alwaysDrawGizmos = false;
 
@@ -25,8 +32,16 @@ public class Path : MonoBehaviour
 		return _path[index];
 	}
 
+#if UNITY_EDITOR
+
+	private Color GetGizmosColor()
+	{
+		return Selection.activeGameObject == gameObject ? Color.red : _gizmosColor;
+	}
+
 	private void OnDrawGizmos()
 	{
+		Gizmos.color = GetGizmosColor();
 		if (_alwaysDrawGizmos == true)
 		{
 			if (_path == null || _path.Count == 0)
@@ -43,6 +58,7 @@ public class Path : MonoBehaviour
 
 	private void OnDrawGizmosSelected()
 	{
+		Gizmos.color = GetGizmosColor();
 		if (_alwaysDrawGizmos == false)
 		{
 			if (_path == null || _path.Count == 0)
@@ -56,4 +72,6 @@ public class Path : MonoBehaviour
 			}
 		}
 	}
+#endif //UNITY_EDITOR
+
 }
