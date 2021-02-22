@@ -46,10 +46,12 @@ public class Tile : MonoBehaviour
 		_eventThrown = false;
 		transform.position = worldPosition;
 		//transform.localPosition = Vector3.zero;
+
+		transform.localScale = Vector3.zero;
 		gameObject.SetActive(isActive);
 
 		// TODO AL : cache coroutine
-		StartCoroutine(OnActivate(isActive));
+		GameManager.Instance.StartCoroutine(OnActivate(isActive));
 	}
 
 	private void Update()
@@ -91,6 +93,7 @@ public class Tile : MonoBehaviour
 		while (transform.localScale != result)
 		{
 			transform.localScale = Vector3.MoveTowards(transform.localScale, result, Time.deltaTime * _maxScaleDelta);
+			Debug.LogError("OnActivate");
 			yield return null;
 		}
 	}
