@@ -19,6 +19,9 @@ public class Tile : MonoBehaviour
 	[SerializeField]
 	private float _exitLength = 10f;
 
+	[SerializeField]
+	private float _maxScaleDelta = 1f;
+
 	[BoxGroup("Gizmos")]
 	private bool _hideGizmos = false;
 
@@ -44,6 +47,9 @@ public class Tile : MonoBehaviour
 		transform.position = worldPosition;
 		//transform.localPosition = Vector3.zero;
 		gameObject.SetActive(isActive);
+
+		// TODO AL : cache coroutine
+		StartCoroutine(OnActivate(isActive));
 	}
 
 	private void Update()
@@ -75,5 +81,17 @@ public class Tile : MonoBehaviour
 			Gizmos.DrawWireCube(center, size);
 		}
 		Gizmos.matrix = previousMatrix;
+	}
+
+
+	IEnumerator OnActivate(bool isActive)
+	{
+		Vector3 result = isActive ? Vector3.one : Vector3.zero;
+
+		while (transform.localScale != result)
+		{
+			transform.localScale = Vector3.MoveTowards(transform.localScale, result, Time.deltaTime * _maxScaleDelta);
+			yield return null;
+		}
 	}
 }
