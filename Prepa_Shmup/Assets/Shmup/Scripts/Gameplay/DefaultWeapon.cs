@@ -8,6 +8,12 @@ public class DefaultWeapon : MonoBehaviour
 	private string _inputName = "Fire1";
 
 	[SerializeField]
+	private string _lockedInputName = "Fire2";
+
+	[SerializeField]
+	private bool priority = false;
+
+	[SerializeField]
 	private Projectile _projectile = null;
 
 	[SerializeField]
@@ -35,8 +41,11 @@ public class DefaultWeapon : MonoBehaviour
 	private void UpdateInputs()
 	{
 		bool fired = Input.GetButton(_inputName);
+		bool isLockingFiring = 
+			priority == true ||
+			Input.GetButton(_lockedInputName) == false;
 
-		if (fired == true && _currentFireTime <= 0)
+		if (fired == true && isLockingFiring == true && _currentFireTime <= 0)
 		{
 			_currentFireTime = _fireRate;
 			DoFireMultiple();

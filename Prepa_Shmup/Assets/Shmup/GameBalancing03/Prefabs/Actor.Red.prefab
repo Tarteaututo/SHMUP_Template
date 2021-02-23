@@ -63,7 +63,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 005524984ad85a1498cea6c4d7bbe193, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 1
+  _maxHealth: 50
   DamageReceived:
     m_PersistentCalls:
       m_Calls: []
@@ -104,7 +104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b571b3816284534396cb945178d2a98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _projectilePrefab: {fileID: 7103207439255743009, guid: af5b1dfb9002a3b49ae810f5605af499,
+  _projectilePrefab: {fileID: 7103207439255743009, guid: dba2d7d3a4353aa4ea58592580f2698e,
     type: 3}
   _canFire: 0
 --- !u!114 &-4327794768774336305

@@ -19,20 +19,28 @@ MonoBehaviour:
     - _spawnerSettings: {fileID: 11400000, guid: 68bcc0c96df8f834aae79ae1dcfd368b,
         type: 2}
       _spawnerID: 0
+      _spawnType: 0
       _spawnDuration: 5
+      _secondSpawnDuration: 5
       _waitBetweenSpawns: 0
     - _spawnerSettings: {fileID: 11400000, guid: 68bcc0c96df8f834aae79ae1dcfd368b,
         type: 2}
       _spawnerID: 1
+      _spawnType: 0
       _spawnDuration: 5
+      _secondSpawnDuration: 5
       _waitBetweenSpawns: 0
     - _spawnerSettings: {fileID: 11400000, guid: 68bcc0c96df8f834aae79ae1dcfd368b,
         type: 2}
       _spawnerID: 5
+      _spawnType: 0
       _spawnDuration: 5
+      _secondSpawnDuration: 5
       _waitBetweenSpawns: 0
     - _spawnerSettings: {fileID: 11400000, guid: 68bcc0c96df8f834aae79ae1dcfd368b,
         type: 2}
       _spawnerID: 6
+      _spawnType: 0
       _spawnDuration: 5
+      _secondSpawnDuration: 5
       _waitBetweenSpawns: 0

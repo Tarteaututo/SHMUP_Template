@@ -93,7 +93,6 @@ public class Tile : MonoBehaviour
 		while (transform.localScale != result)
 		{
 			transform.localScale = Vector3.MoveTowards(transform.localScale, result, Time.deltaTime * _maxScaleDelta);
-			Debug.LogError("OnActivate");
 			yield return null;
 		}
 	}

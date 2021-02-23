@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: 20
-  _damage: 1
+  _damage: 10
   _selfDestructDelay: 1
   _addToProjectileList: 0
   DestroyTarget:

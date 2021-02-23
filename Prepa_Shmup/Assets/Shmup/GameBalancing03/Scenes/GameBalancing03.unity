@@ -231,7 +231,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh30724
+  m_Name: pb_Mesh38434
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -388,56 +388,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!1 &59727539
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 59727540}
-  - component: {fileID: 59727541}
-  m_Layer: 0
-  m_Name: DefaultWeapon.Third (2)
-  m_TagString: Untagged
-  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &59727540
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 59727539}
-  m_LocalRotation: {x: -0.00000041723246, y: -0.7071075, z: 0.0000002533191, w: 0.7071062}
-  m_LocalPosition: {x: -0.25, y: -0, z: -0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1646112876}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: -90.00001, z: 0}
---- !u!114 &59727541
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 59727539}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37fed607a9d2b3c4086f1cb4d97b6ff1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _inputName: Fire3
-  _projectile: {fileID: 7103207439255743009, guid: 31863b0c907911e41b7e4dccdfd244e4,
-    type: 3}
-  _projectileCount: 2
-  _horizontalProjectilesSpacing: 0.5
-  _fireRate: 0.5
-  _muzzle: {fileID: 59727540}
 --- !u!1 &60577180
 GameObject:
   m_ObjectHideFlags: 0
@@ -869,6 +819,7 @@ MonoBehaviour:
   _moveSpeed: 5
   _endPosition: {fileID: 1432396030}
   _exitLength: 12
+  _maxScaleDelta: 1
   _gizmosWidth: 17.87
   _gizmosThickness: 3.72
 --- !u!4 &105495725
@@ -1384,6 +1335,7 @@ MonoBehaviour:
   _moveSpeed: 5
   _endPosition: {fileID: 1538830956}
   _exitLength: 5
+  _maxScaleDelta: 1
   _gizmosWidth: 17.7
   _gizmosThickness: 3
 --- !u!1 &229118865
@@ -1526,7 +1478,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh30794
+  m_Name: pb_Mesh38508
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2305,7 +2257,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh31106
+  m_Name: pb_Mesh38952
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3049,6 +3001,7 @@ MonoBehaviour:
   _moveSpeed: 5
   _endPosition: {fileID: 105247654}
   _exitLength: 12
+  _maxScaleDelta: 1
   _gizmosWidth: 17.87
   _gizmosThickness: 3
 --- !u!1 &490850544
@@ -3203,6 +3156,7 @@ MonoBehaviour:
   _moveSpeed: 5
   _endPosition: {fileID: 1826039283}
   _exitLength: 12
+  _maxScaleDelta: 1
   _gizmosWidth: 17.87
   _gizmosThickness: 3.72
 --- !u!4 &511038766
@@ -3808,6 +3762,7 @@ MonoBehaviour:
   _moveSpeed: 5
   _endPosition: {fileID: 1382466748}
   _exitLength: 12
+  _maxScaleDelta: 1
   _gizmosWidth: 17.87
   _gizmosThickness: 3.72
 --- !u!4 &591587327
@@ -3832,7 +3787,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh31278
+  m_Name: pb_Mesh39182
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4051,6 +4006,7 @@ MonoBehaviour:
   _moveSpeed: 5
   _endPosition: {fileID: 1543205888}
   _exitLength: 12
+  _maxScaleDelta: 1
   _gizmosWidth: 17.87
   _gizmosThickness: 3
 --- !u!4 &630068884
@@ -4494,7 +4450,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh31156
+  m_Name: pb_Mesh39032
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6381,6 +6337,7 @@ MonoBehaviour:
   _moveSpeed: 5
   _endPosition: {fileID: 510640341}
   _exitLength: 12
+  _maxScaleDelta: 1
   _gizmosWidth: 17.87
   _gizmosThickness: 3
 --- !u!4 &916774674
@@ -8262,7 +8219,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh30970
+  m_Name: pb_Mesh38792
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -9901,7 +9858,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh30598
+  m_Name: pb_Mesh38292
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -11191,6 +11148,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _inputName: Fire2
+  _lockedInputName: Fire1
+  priority: 0
   _projectile: {fileID: 7103207439255743009, guid: 31863b0c907911e41b7e4dccdfd244e4,
     type: 3}
   _projectileCount: 2
@@ -11427,7 +11386,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh31182
+  m_Name: pb_Mesh39062
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -12047,56 +12006,6 @@ Transform:
   m_Father: {fileID: 1937982693}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1529018838
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1529018839}
-  - component: {fileID: 1529018840}
-  m_Layer: 0
-  m_Name: DefaultWeapon.Third (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1529018839
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1529018838}
-  m_LocalRotation: {x: -0.00000041723197, y: 0.7071067, z: -0.00000023841855, w: 0.707107}
-  m_LocalPosition: {x: 0.25, y: -0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1646112876}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 90.00001, z: 0}
---- !u!114 &1529018840
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1529018838}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37fed607a9d2b3c4086f1cb4d97b6ff1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _inputName: Fire3
-  _projectile: {fileID: 7103207439255743009, guid: 31863b0c907911e41b7e4dccdfd244e4,
-    type: 3}
-  _projectileCount: 2
-  _horizontalProjectilesSpacing: 0.5
-  _fireRate: 0.5
-  _muzzle: {fileID: 1529018839}
 --- !u!1 &1538830955
 GameObject:
   m_ObjectHideFlags: 0
@@ -12315,8 +12224,6 @@ Transform:
   - {fileID: 2137511575}
   - {fileID: 1412325877}
   - {fileID: 784302634}
-  - {fileID: 1529018839}
-  - {fileID: 59727540}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: -180, y: -90, z: 89.99999}
@@ -12332,6 +12239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8483fba631dc7cd488dc220efe8e9ce3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _useXZPlan: 1
   _worldLimits: {fileID: 1107284688}
   _damageable: {fileID: 1646112878}
   _moveSpeed: 8
@@ -12339,8 +12247,6 @@ MonoBehaviour:
   - {fileID: 2137511576}
   - {fileID: 1412325878}
   - {fileID: 784302635}
-  - {fileID: 1529018840}
-  - {fileID: 59727541}
 --- !u!114 &1646112878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12504,7 +12410,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh30910
+  m_Name: pb_Mesh38716
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -15402,7 +15308,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh30758
+  m_Name: pb_Mesh38468
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -16081,7 +15987,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh31200
+  m_Name: pb_Mesh39080
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -17610,9 +17516,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _inputName: Fire1
+  _lockedInputName: Fire2
+  priority: 1
   _projectile: {fileID: 7103207439255743009, guid: 31863b0c907911e41b7e4dccdfd244e4,
     type: 3}
-  _projectileCount: 2
+  _projectileCount: 1
   _horizontalProjectilesSpacing: 0.5
   _fireRate: 0.2
   _muzzle: {fileID: 834155217}

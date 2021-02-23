@@ -6,6 +6,9 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
 	[SerializeField]
+	private bool _useXZPlan = false;
+
+	[SerializeField]
 	private WorldLimits _worldLimits = null;
 
 	[SerializeField]
@@ -34,7 +37,19 @@ public class Player : MonoBehaviour
 
 	private void Move()
 	{
-		Vector3 direction = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0).normalized;
+		Vector3 direction;
+		float hInput = Input.GetAxis("Horizontal");
+		float vInput = Input.GetAxis("Vertical");
+
+		if (_useXZPlan == true)
+		{
+			direction = new Vector3(hInput, vInput, 0).normalized;
+		}
+		else
+		{
+			direction = new Vector3(hInput, 0, vInput).normalized;
+		}
+
 		Vector3 desiredPosition = Vector3.Lerp(transform.position, transform.position + direction, Time.deltaTime * _moveSpeed);
 		transform.position = _worldLimits.Clamp(desiredPosition);
 	}
