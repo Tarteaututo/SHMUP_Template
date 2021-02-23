@@ -28,13 +28,13 @@ public class Tiler : MonoBehaviour
 		{
 			Tile tile = _tiles[i];
 			tile.LengthExceeded += OnTileLengthExceeded;
-			tile.Activate(false, Vector3.zero);
+			tile.Activate(false, transform.position);
 		}
 
 		if (_defaultTile != null)
 		{
 			_defaultTile.LengthExceeded += OnTileLengthExceeded;
-			_defaultTile.Activate(false, Vector3.zero);
+			_defaultTile.Activate(false, transform.position);
 		}
 	}
 

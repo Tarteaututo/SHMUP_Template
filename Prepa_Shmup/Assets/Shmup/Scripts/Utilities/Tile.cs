@@ -47,11 +47,11 @@ public class Tile : MonoBehaviour
 		transform.position = worldPosition;
 		//transform.localPosition = Vector3.zero;
 
-		transform.localScale = Vector3.zero;
+		//transform.localScale = Vector3.zero;
 		gameObject.SetActive(isActive);
 
 		// TODO AL : cache coroutine
-		GameManager.Instance.StartCoroutine(OnActivate(isActive));
+		//GameManager.Instance.StartCoroutine(OnActivate(isActive));
 	}
 
 	private void Update()
