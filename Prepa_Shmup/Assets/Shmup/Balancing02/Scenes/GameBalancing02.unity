@@ -127,7 +127,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh14538
+  m_Name: pb_Mesh-11842
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -290,7 +290,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh14608
+  m_Name: pb_Mesh-11864
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -845,10 +845,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a4678bb8e1f8f84994066a33ff06b15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _hideGraphicsWhenUnactive: 1
+  _useOnce: 0
   _moveSpeed: 5
   _endPosition: {fileID: 1432396030}
   _exitLength: 12
-  _maxScaleDelta: 1
   _gizmosWidth: 17.87
   _gizmosThickness: 3.72
 --- !u!4 &105495725
@@ -1570,10 +1571,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a4678bb8e1f8f84994066a33ff06b15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _hideGraphicsWhenUnactive: 1
+  _useOnce: 0
   _moveSpeed: 5
   _endPosition: {fileID: 1538830956}
   _exitLength: 100
-  _maxScaleDelta: 1
   _gizmosWidth: 17.7
   _gizmosThickness: 3
 --- !u!1 &229118865
@@ -1612,7 +1614,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh14618
+  m_Name: pb_Mesh-11862
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1856,7 +1858,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh14896
+  m_Name: pb_Mesh-11850
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2175,10 +2177,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a4678bb8e1f8f84994066a33ff06b15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _hideGraphicsWhenUnactive: 1
+  _useOnce: 0
   _moveSpeed: 5
   _endPosition: {fileID: 1051696658}
   _exitLength: 100
-  _maxScaleDelta: 1
   _gizmosWidth: 17.87
   _gizmosThickness: 3
 --- !u!4 &347534187
@@ -2334,6 +2337,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _inputName: Fire2
+  _lockedInputName: Fire2
+  priority: 0
   _projectile: {fileID: 7103207439255743009, guid: 951c7f019a2c3484b9e2a4a41c4a9ead,
     type: 3}
   _projectileCount: 6
@@ -2744,10 +2749,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a4678bb8e1f8f84994066a33ff06b15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _hideGraphicsWhenUnactive: 1
+  _useOnce: 0
   _moveSpeed: 5
   _endPosition: {fileID: 1826039283}
   _exitLength: 12
-  _maxScaleDelta: 1
   _gizmosWidth: 17.87
   _gizmosThickness: 3.72
 --- !u!4 &511038766
@@ -3381,7 +3387,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh14970
+  m_Name: pb_Mesh-11856
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3862,10 +3868,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a4678bb8e1f8f84994066a33ff06b15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _hideGraphicsWhenUnactive: 1
+  _useOnce: 0
   _moveSpeed: 5
   _endPosition: {fileID: 1382466748}
   _exitLength: 12
-  _maxScaleDelta: 1
   _gizmosWidth: 17.87
   _gizmosThickness: 3.72
 --- !u!4 &591587327
@@ -3890,7 +3897,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh15070
+  m_Name: pb_Mesh-11852
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4693,7 +4700,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh14944
+  m_Name: pb_Mesh-11860
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4894,6 +4901,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _inputName: Fire2
+  _lockedInputName: Fire2
+  priority: 0
   _projectile: {fileID: 7103207439255743009, guid: 951c7f019a2c3484b9e2a4a41c4a9ead,
     type: 3}
   _projectileCount: 3
@@ -5333,6 +5342,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _inputName: Fire2
+  _lockedInputName: Fire2
+  priority: 0
   _projectile: {fileID: 7103207439255743009, guid: 951c7f019a2c3484b9e2a4a41c4a9ead,
     type: 3}
   _projectileCount: 6
@@ -6704,10 +6715,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a4678bb8e1f8f84994066a33ff06b15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _hideGraphicsWhenUnactive: 1
+  _useOnce: 0
   _moveSpeed: 5
   _endPosition: {fileID: 510640341}
   _exitLength: 100
-  _maxScaleDelta: 1
   _gizmosWidth: 17.87
   _gizmosThickness: 3
 --- !u!4 &916774674
@@ -8700,7 +8712,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh14778
+  m_Name: pb_Mesh-11854
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -9917,10 +9929,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a4678bb8e1f8f84994066a33ff06b15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _hideGraphicsWhenUnactive: 1
+  _useOnce: 0
   _moveSpeed: 5
   _endPosition: {fileID: 360488955}
   _exitLength: 100
-  _maxScaleDelta: 1
   _gizmosWidth: 17.87
   _gizmosThickness: 3
 --- !u!4 &1295526815
@@ -9947,7 +9960,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh14414
+  m_Name: pb_Mesh-11848
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -10896,6 +10909,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _inputName: Fire2
+  _lockedInputName: Fire2
+  priority: 0
   _projectile: {fileID: 7103207439255743009, guid: 951c7f019a2c3484b9e2a4a41c4a9ead,
     type: 3}
   _projectileCount: 6
@@ -11317,6 +11332,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _inputName: Fire2
+  _lockedInputName: Fire2
+  priority: 0
   _projectile: {fileID: 7103207439255743009, guid: 951c7f019a2c3484b9e2a4a41c4a9ead,
     type: 3}
   _projectileCount: 3
@@ -11520,6 +11537,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _inputName: Fire2
+  _lockedInputName: Fire2
+  priority: 0
   _projectile: {fileID: 7103207439255743009, guid: 951c7f019a2c3484b9e2a4a41c4a9ead,
     type: 3}
   _projectileCount: 3
@@ -12377,7 +12396,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh14734
+  m_Name: pb_Mesh-11858
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -13021,6 +13040,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _inputName: Fire2
+  _lockedInputName: Fire2
+  priority: 0
   _projectile: {fileID: 7103207439255743009, guid: 951c7f019a2c3484b9e2a4a41c4a9ead,
     type: 3}
   _projectileCount: 3
@@ -14937,7 +14958,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh14568
+  m_Name: pb_Mesh-11846
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -17472,6 +17493,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _inputName: Fire1
+  _lockedInputName: Fire2
+  priority: 0
   _projectile: {fileID: 7103207439255743009, guid: 951c7f019a2c3484b9e2a4a41c4a9ead,
     type: 3}
   _projectileCount: 1

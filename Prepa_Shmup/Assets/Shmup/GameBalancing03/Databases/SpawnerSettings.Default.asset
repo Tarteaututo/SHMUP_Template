@@ -17,4 +17,4 @@ MonoBehaviour:
   _actorMoveSpeed: 2
   isReverse: 0
   _spawnRate: 1
-  _canFire: 0
+  _canFire: 1
