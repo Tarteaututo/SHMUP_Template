@@ -6,8 +6,13 @@ using UnityEngine;
 public class Tile : MonoBehaviour
 {
 	[SerializeField]
-	private float _moveSpeed = 1f;
+	private bool _hideGraphicsWhenUnactive = true;
+	
+	[SerializeField]
+	private bool _useOnce = false;
 
+	[SerializeField]
+	private float _moveSpeed = 1f;
 
 	[BoxGroup("endPosition", ShowLabel = false)]
 	[InfoBox("The position at which the next tile will be spawned.")]
@@ -18,9 +23,6 @@ public class Tile : MonoBehaviour
 	[InfoBox("The remaining distance needed to be traveled to get out of camera view when the endPosition reaches the top limits.")]
 	[SerializeField]
 	private float _exitLength = 10f;
-
-	[SerializeField]
-	private float _maxScaleDelta = 1f;
 
 	[BoxGroup("Gizmos")]
 	private bool _hideGizmos = false;
@@ -48,7 +50,14 @@ public class Tile : MonoBehaviour
 		//transform.localPosition = Vector3.zero;
 
 		//transform.localScale = Vector3.zero;
-		gameObject.SetActive(isActive);
+		if (_hideGraphicsWhenUnactive == true)
+		{
+			gameObject.SetActive(isActive);
+		}
+		else
+		{
+			enabled = isActive;
+		}
 
 		// TODO AL : cache coroutine
 		//GameManager.Instance.StartCoroutine(OnActivate(isActive));
@@ -66,7 +75,14 @@ public class Tile : MonoBehaviour
 		}
 		else if (currentZPosition > ExitLength)
 		{
-			Activate(false, Vector3.zero);
+			if (_useOnce == true)
+			{
+				Destroy(gameObject);
+			}
+			else
+			{
+				Activate(false, Vector3.zero);
+			}
 		}
 	}
 
@@ -86,14 +102,4 @@ public class Tile : MonoBehaviour
 	}
 
 
-	IEnumerator OnActivate(bool isActive)
-	{
-		Vector3 result = isActive ? Vector3.one : Vector3.zero;
-
-		while (transform.localScale != result)
-		{
-			transform.localScale = Vector3.MoveTowards(transform.localScale, result, Time.deltaTime * _maxScaleDelta);
-			yield return null;
-		}
-	}
 }

@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Shmup/MainMenu/MainMenu.unity
+    guid: e8bd3d03eb5cec745a87491877b3d35d
+  - enabled: 1
     path: Assets/Shmup/Balancing01/Scenes/GameBalancing01.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1

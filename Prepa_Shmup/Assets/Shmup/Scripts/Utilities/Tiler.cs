@@ -27,12 +27,14 @@ public class Tiler : MonoBehaviour
 		for (int i = 0, length = _tiles.Count; i < length; i++)
 		{
 			Tile tile = _tiles[i];
+			tile.LengthExceeded -= OnTileLengthExceeded;
 			tile.LengthExceeded += OnTileLengthExceeded;
 			tile.Activate(false, transform.position);
 		}
 
 		if (_defaultTile != null)
 		{
+			_defaultTile.LengthExceeded -= OnTileLengthExceeded;
 			_defaultTile.LengthExceeded += OnTileLengthExceeded;
 			_defaultTile.Activate(false, transform.position);
 		}
@@ -63,7 +65,7 @@ public class Tiler : MonoBehaviour
 	/// <param name="startPosition"></param>
 	private void StartTile(Tile specificTile, bool ignoreSpecificTile, Vector3 startPosition)
 	{
-		Tile newSelection = null;
+		Tile newSelection;
 		if (ignoreSpecificTile == true)
 		{
 			List<Tile> buffer = new List<Tile>(_tiles);
