@@ -7,7 +7,7 @@ public class Tile : MonoBehaviour
 {
 	[SerializeField]
 	private bool _hideGraphicsWhenUnactive = true;
-	
+
 	[SerializeField]
 	private bool _useOnce = false;
 
@@ -24,19 +24,28 @@ public class Tile : MonoBehaviour
 	[SerializeField]
 	private float _exitLength = 10f;
 
+	[SerializeField]
+	private bool _scaleAtActivation = false;
+
+	[SerializeField]
+	private float _maxScaleDelta = 1f;
+
 	[BoxGroup("Gizmos")]
 	private bool _hideGizmos = false;
 
 	[BoxGroup("Gizmos")]
 	[SerializeField]
 	private float _gizmosWidth = 10f;
-	
+
 	[BoxGroup("Gizmos")]
 	[SerializeField]
 	private float _gizmosThickness = 10f;
 
 	[System.NonSerialized]
 	private bool _eventThrown = false;
+
+	[System.NonSerialized]
+	private Coroutine _activationCoroutine = null;
 
 	public delegate void TileEvent(Tile sender, Vector3 endPosition);
 	public event TileEvent LengthExceeded = null;
@@ -49,7 +58,6 @@ public class Tile : MonoBehaviour
 		transform.position = worldPosition;
 		//transform.localPosition = Vector3.zero;
 
-		//transform.localScale = Vector3.zero;
 		if (_hideGraphicsWhenUnactive == true)
 		{
 			gameObject.SetActive(isActive);
@@ -59,8 +67,16 @@ public class Tile : MonoBehaviour
 			enabled = isActive;
 		}
 
-		// TODO AL : cache coroutine
-		//GameManager.Instance.StartCoroutine(OnActivate(isActive));
+		if (_scaleAtActivation == true)
+		{
+			transform.localScale = Vector3.zero;
+			if (_activationCoroutine != null)
+			{
+				StopCoroutine(_activationCoroutine);
+				_activationCoroutine = null;
+			}
+			_activationCoroutine = GameManager.Instance.StartCoroutine(OnActivate(isActive));
+		}
 	}
 
 	private void Update()
@@ -101,5 +117,15 @@ public class Tile : MonoBehaviour
 		Gizmos.matrix = previousMatrix;
 	}
 
+	IEnumerator OnActivate(bool isActive)
+	{
+		Vector3 result = isActive ? Vector3.one : Vector3.zero;
 
+		while (transform.localScale != result)
+		{
+			transform.localScale = Vector3.MoveTowards(transform.localScale, result, Time.deltaTime * _maxScaleDelta);
+			yield return null;
+		}
+		_activationCoroutine = null;
+	}
 }
