@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class Actor : MonoBehaviour
 {
-	[SerializeField]
-	private int _collisionDamage = 1;
-
+	#region Fields
 	[SerializeField]
 	private float _moveSpeed = 1f;
 
@@ -23,12 +21,9 @@ public class Actor : MonoBehaviour
 	private bool _isReverse = false;
 
 	private Transform _currentDestination = null;
+	#endregion Fields
 
-	public int GetCollisionDamage()
-	{
-		return _collisionDamage;
-	}
-
+	#region Methods
 	public void SetPath(Path path, bool isReverse)
 	{
 		_path = path;
@@ -111,4 +106,6 @@ public class Actor : MonoBehaviour
 			_currentPathIndex++;
 		}
 	}
+	#endregion Methods
+
 }

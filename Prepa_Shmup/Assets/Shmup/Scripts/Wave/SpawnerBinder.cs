@@ -1,11 +1,11 @@
 ﻿using System.Collections;
+using System.Threading;
 using UnityEngine;
 
 ///
 /// Decommentez tout ce qui est en commentaire si vous voulez personnaliser des méthodes de spawn.
 /// En exemple, une méthode qui ajoute un second timer qui permet de personnaliser un peu plus le spawn.
 /// 
-
 
 public enum SpawnType
 {
@@ -33,10 +33,10 @@ public class SpawnerBinder
 	private float _spawnDuration = 5f;
 
 	[SerializeField]
-	private float _secondSpawnDuration = 5f;
+	private float _waitBetweenSpawns = 0f;
 
 	[SerializeField]
-	private float _waitBetweenSpawns = 3f;
+	private float _waitBeforeBeginSpawn = 0f;
 
 	[System.NonSerialized]
 	private Spawner _spawner = null;
@@ -68,7 +68,8 @@ public class SpawnerBinder
 			break;
 			case SpawnType.Alternative01:
 			{
-				yield return RunMethod02();
+				yield return new WaitForSeconds(_waitBeforeBeginSpawn);
+				yield return RunMethod01();
 			}
 			break;
 		}
@@ -90,20 +91,4 @@ public class SpawnerBinder
 		yield return RunMethod01();
 	}
 
-	private IEnumerator RunMethod02()
-	{
-		_spawner.StartSpawner();
-
-		yield return new WaitForSeconds(_spawnDuration);
-		_spawner.StopSpawner();
-
-		yield return new WaitForSeconds(_waitBetweenSpawns);
-		_spawner.StartSpawner();
-
-		yield return new WaitForSeconds(_secondSpawnDuration);
-		_spawner.StopSpawner();
-
-		yield return new WaitForSeconds(_waitBetweenSpawns);
-		yield return RunMethod02();
-	}
 }

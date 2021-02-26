@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1918858696812655369
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7622147864873745627}
+  m_Layer: 0
+  m_Name: ProjectileLauncher.Position
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7622147864873745627
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1918858696812655369}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2458663954699044146}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2458663954699044144
 GameObject:
   m_ObjectHideFlags: 0
@@ -12,8 +42,9 @@ GameObject:
   - component: {fileID: 2458663954699044145}
   - component: {fileID: 2458663954699044147}
   - component: {fileID: 2614347901665480445}
-  - component: {fileID: 5645012332192288473}
-  - component: {fileID: 292460499408997629}
+  - component: {fileID: 810300523436418348}
+  - component: {fileID: 8359429100137022573}
+  - component: {fileID: 262771556125105734}
   m_Layer: 0
   m_Name: Actor.Red
   m_TagString: Untagged
@@ -33,6 +64,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2458663955807818734}
+  - {fileID: 7622147864873745627}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -48,7 +80,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a55bbddcfac7026409be72a246c7f629, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collisionDamage: 1
   _moveSpeed: 5
   _destinationThreshold: 0.1
 --- !u!114 &2458663954699044147
@@ -70,7 +101,7 @@ MonoBehaviour:
   Destroyed:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5645012332192288473}
+      - m_Target: {fileID: 810300523436418348}
         m_MethodName: DoInstantiate
         m_Mode: 1
         m_Arguments:
@@ -81,7 +112,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 292460499408997629}
+      - m_Target: {fileID: 8359429100137022573}
         m_MethodName: AddScore
         m_Mode: 1
         m_Arguments:
@@ -104,10 +135,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b571b3816284534396cb945178d2a98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _projectilePrefab: {fileID: 7103207439255743009, guid: af5b1dfb9002a3b49ae810f5605af499,
+  _instancePosition: {fileID: 7622147864873745627}
+  _projectilePrefab: {fileID: 7103207439255743009, guid: dba2d7d3a4353aa4ea58592580f2698e,
     type: 3}
   _canFire: 0
---- !u!114 &5645012332192288473
+  _projectileCount: 1
+  _horizontalProjectilesSpacing: 1
+  _fireRate: 0.1
+--- !u!114 &810300523436418348
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,7 +157,7 @@ MonoBehaviour:
   _particleSystem: {fileID: 5532242907850804179, guid: 32b172170a1f73f4d883323ec9b3e938,
     type: 3}
   _copyInstancierRotation: 0
---- !u!114 &292460499408997629
+--- !u!114 &8359429100137022573
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -135,6 +170,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _score: 1
+--- !u!114 &262771556125105734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2458663954699044144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 820b7536adf2a374488dc62d1de4cfb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _collisionDamage: 1
 --- !u!1 &2458663955807818733
 GameObject:
   m_ObjectHideFlags: 0
@@ -163,7 +211,7 @@ Transform:
   m_GameObject: {fileID: 2458663955807818733}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children: []
   m_Father: {fileID: 2458663954699044146}
   m_RootOrder: 0

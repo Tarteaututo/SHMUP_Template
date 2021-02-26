@@ -1,26 +1,28 @@
 ﻿using System.Collections;
 using UnityEngine;
 
+// TODO AL : we must add a collision damager emiitter class and get rid of actor dependency
+
 /// <summary>
 /// Must be used with a rigidbody on the same gameobject
+/// 
+/// Works with CollisionDamageEmitter
 /// </summary>
 public class CollisionDamager : MonoBehaviour
 {
 	[SerializeField]
 	private Damageable _damageable = null;
 
-	[SerializeField]
-	private bool _destroyOther = false;
-
 	private void OnTriggerEnter(Collider other)
 	{
-		Actor actor = other.GetComponentInParent<Actor>();
-		if (actor != null)
+		CollisionDamageEmitter emitter = other.GetComponentInParent<CollisionDamageEmitter>();
+		if (emitter != null)
 		{
-			_damageable.DoDamage(actor.GetCollisionDamage());
-			if (_destroyOther == true)
+			_damageable.DoDamage(emitter.GetCollisionDamage());
+
+			if (emitter.IsDestroyedByCollision() == true)
 			{
-				Damageable actorDamageable = actor.GetComponent<Damageable>();
+				Damageable actorDamageable = emitter.GetComponent<Damageable>();
 				if (actorDamageable != null)
 				{
 					actorDamageable.DoDamage(1000);

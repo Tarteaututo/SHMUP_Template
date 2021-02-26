@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 55c172cab3d115e49b65738c0b5b5945, type: 3}
-  m_Name: Wave00
+  m_Name: Wave
   m_EditorClassIdentifier: 
   _spawnSession:
-  - _duration: 15
+  - _duration: 30
     _exitDuration: 0
     _spawnerBinders:
     - _spawnerSettings: {fileID: 11400000, guid: 68bcc0c96df8f834aae79ae1dcfd368b,
@@ -21,26 +21,12 @@ MonoBehaviour:
       _spawnerID: 0
       _spawnType: 0
       _spawnDuration: 5
-      _secondSpawnDuration: 5
       _waitBetweenSpawns: 0
-    - _spawnerSettings: {fileID: 11400000, guid: 68bcc0c96df8f834aae79ae1dcfd368b,
+      _waitBeforeBeginSpawn: 0
+    - _spawnerSettings: {fileID: 11400000, guid: 1cc5bf863813a234eb00fe3f8145f3b6,
         type: 2}
       _spawnerID: 1
       _spawnType: 0
       _spawnDuration: 5
-      _secondSpawnDuration: 5
       _waitBetweenSpawns: 0
-    - _spawnerSettings: {fileID: 11400000, guid: 68bcc0c96df8f834aae79ae1dcfd368b,
-        type: 2}
-      _spawnerID: 5
-      _spawnType: 0
-      _spawnDuration: 5
-      _secondSpawnDuration: 5
-      _waitBetweenSpawns: 0
-    - _spawnerSettings: {fileID: 11400000, guid: 68bcc0c96df8f834aae79ae1dcfd368b,
-        type: 2}
-      _spawnerID: 6
-      _spawnType: 0
-      _spawnDuration: 5
-      _secondSpawnDuration: 5
-      _waitBetweenSpawns: 0
+      _waitBeforeBeginSpawn: 0

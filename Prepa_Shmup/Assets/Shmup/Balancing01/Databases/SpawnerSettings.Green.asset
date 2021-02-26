@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d0a273480aaa06c4c8b7fc9a89c180a4, type: 3}
-  m_Name: SpawnerSettings.Red_01
+  m_Name: SpawnerSettings.Green
   m_EditorClassIdentifier: 
-  _actorPrefab: {fileID: 2458663954699044145, guid: a649d92b7e4251548a468a1c84806617,
+  _actorPrefab: {fileID: 2458663954699044145, guid: 347ba30ef942e464a87b9dd070ea1e24,
     type: 3}
-  _actorMoveSpeed: 2
+  _actorMoveSpeed: 5
   isReverse: 0
-  _spawnRate: 1
+  _spawnRate: 0.5
   _canFire: 0
+  _isDestroyedByCollision: 0

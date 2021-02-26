@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireEmitter : MonoBehaviour
+public class ProjectileLauncherEmitter : MonoBehaviour
 {
 	[SerializeField]
 	private float _delay = 0f;
@@ -25,10 +25,10 @@ public class FireEmitter : MonoBehaviour
 		if (_currentTime <= 0)
 		{
 			_currentTime = _delay;
-			var fireable = other.GetComponentInParent<Fireable>();
+			ProjectileLauncher fireable = other.GetComponentInParent<ProjectileLauncher>();
 			if (fireable != null)
 			{
-				fireable.DoFire(transform.rotation);
+				fireable.LaunchProjectile(transform.rotation);
 			}
 		}
 	}

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7103207439255743009}
   - component: {fileID: 2038024044704475628}
   - component: {fileID: 6036399080972648448}
-  - component: {fileID: -4107811161836546843}
+  - component: {fileID: 3167728651361199527}
   m_Layer: 0
   m_Name: ActorProjectile
   m_TagString: Untagged
@@ -89,7 +89,7 @@ MonoBehaviour:
   Destroyed:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -4107811161836546843}
+      - m_Target: {fileID: 3167728651361199527}
         m_MethodName: DoInstantiate
         m_Mode: 1
         m_Arguments:
@@ -100,7 +100,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &-4107811161836546843
+--- !u!114 &3167728651361199527
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Xml.Schema;
 using UnityEngine;
 
+// TODO AL : move every actor component to a struct ?
+
 public class Spawner : MonoBehaviour
 {
 	[SerializeField]
@@ -29,29 +31,43 @@ public class Spawner : MonoBehaviour
 	[System.NonSerialized]
 	private bool _canFire = false;
 
-	public void SetActor(Actor prefab)
+	[System.NonSerialized]
+	private bool _isDestroyedByCollision = false;
+
+	public Spawner SetActor(Actor prefab)
 	{
 		_actorPrefab = prefab;
+		return this;
 	}
 
-	public void SetSpawnRate(float spawnRate)
+	public Spawner SetSpawnRate(float spawnRate)
 	{
 		_spawnRate = spawnRate;
+		return this;
 	}
 
-	public void SetMoveSpeed(float speed)
+	public Spawner SetMoveSpeed(float speed)
 	{
 		_speed = speed;
+		return this;
 	}
 
-	public void SetIsReverse(bool isReverse)
+	public Spawner SetIsReverse(bool isReverse)
 	{
 		_isReverse = isReverse;
+		return this;
 	}
-	
-	public void SetCanFire(bool canFire)
+
+	public Spawner SetCanFire(bool canFire)
 	{
 		_canFire = canFire;
+		return this;
+	}
+	
+	public Spawner SetIsDestroyedByCollision(bool isDestroyedByCollision)
+	{
+		_isDestroyedByCollision = isDestroyedByCollision;
+		return this;
 	}
 
 	public void StartSpawner()
@@ -84,7 +100,13 @@ public class Spawner : MonoBehaviour
 		instance.SetPath(_path, _isReverse);
 		instance.SetSpeed(_speed);
 
-		Fireable fireable = instance.GetComponent<Fireable>();
+		ProjectileLauncher fireable = instance.GetComponent<ProjectileLauncher>();
 		fireable.SetCanFire(_canFire);
+
+		CollisionDamageEmitter collisionDamageEmitter = instance.GetComponent<CollisionDamageEmitter>();
+		if (collisionDamageEmitter != null)
+		{
+			collisionDamageEmitter.SetIsDestroyedByCollision(_isDestroyedByCollision);
+		}
 	}
 }

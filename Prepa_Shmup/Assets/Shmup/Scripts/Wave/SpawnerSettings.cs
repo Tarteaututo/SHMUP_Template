@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
+/// <summary>
+/// Not seen in classroom 
+/// TODO AL : comment
+/// </summary>
 [CreateAssetMenu(fileName = "SpawnerSettings", menuName = "GameSup/SpawnerSettings")]
 public class SpawnerSettings : ScriptableObject
 {
@@ -21,12 +25,17 @@ public class SpawnerSettings : ScriptableObject
 	[SerializeField]
 	private bool _canFire = false;
 
+	[SerializeField]
+	private bool _isDestroyedByCollision = true;
+
 	public void Apply(Spawner spawner)
 	{
-		spawner.SetActor(_actorPrefab);
-		spawner.SetMoveSpeed(_actorMoveSpeed);
-		spawner.SetIsReverse(isReverse);
-		spawner.SetSpawnRate(_spawnRate);
-		spawner.SetCanFire(_canFire);
+		// TODO AL : comment about the Builder patterns
+		spawner.SetActor(_actorPrefab)
+				.SetMoveSpeed(_actorMoveSpeed)
+				.SetIsReverse(isReverse)
+				.SetSpawnRate(_spawnRate)
+				.SetCanFire(_canFire)
+				.SetIsDestroyedByCollision(_isDestroyedByCollision);
 	}
 }
