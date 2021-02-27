@@ -27,10 +27,19 @@ public class ProjectileLauncher : MonoBehaviour
 
 	[System.NonSerialized]
 	private float _currentFireTime = 0;
+	
+	[System.NonSerialized]
+	private ProjectileLauncherBehaviour _projectileLauncherBehaviour = 0;
 
 	public ProjectileLauncher SetCanFire(bool canFire)
 	{
 		_canFire = canFire;
+		return this;
+	}
+	
+	public ProjectileLauncher SetProjectileLauncherBehaviour(ProjectileLauncherBehaviour projectileLauncherBehaviour)
+	{
+		_projectileLauncherBehaviour = projectileLauncherBehaviour;
 		return this;
 	}
 

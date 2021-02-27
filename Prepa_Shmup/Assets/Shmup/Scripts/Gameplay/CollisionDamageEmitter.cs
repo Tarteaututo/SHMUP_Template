@@ -2,26 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Damageable))]
 public class CollisionDamageEmitter : MonoBehaviour
 {
 	[SerializeField]
+	private Damageable _damageable = null;
+
+	[SerializeField]
 	private int _collisionDamage = 1;
 
-	[System.NonSerialized]
-	private bool _isDestroyedByCollision = false;
+	[SerializeField]
+	private bool _takeDamageOnCollision = false;
 
-	public bool IsDestroyedByCollision()
+	public void SetTakeDamageOnCollision(bool takeDamageOnCollision)
 	{
-		return _isDestroyedByCollision;
-	}
-
-	public void SetIsDestroyedByCollision(bool isDestroyedByCollision)
-	{
-		_isDestroyedByCollision = isDestroyedByCollision;
+		_takeDamageOnCollision = takeDamageOnCollision;
 	}
 
 	public int GetCollisionDamage()
 	{
 		return _collisionDamage;
+	}
+
+	public void ApplyDamage(int damage)
+	{
+		if (_takeDamageOnCollision == true)
+		{
+			_damageable.DoDamage(damage);
+		}
 	}
 }

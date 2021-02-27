@@ -3,12 +3,19 @@ using System.Collections.Generic;
 using System.Xml.Schema;
 using UnityEngine;
 
-// TODO AL : move every actor component to a struct ?
-
 public class Spawner : MonoBehaviour
 {
 	[SerializeField]
 	private Path _path = null;
+
+	[System.NonSerialized]
+	private ActorSettings _actorSettings = null;
+
+	[System.NonSerialized]
+	private ProjectileLauncherSettings _projectileLauncherSettings = null;
+	
+	[System.NonSerialized]
+	private CollisionDamageSettings _collisionDamageSettings = null;
 
 	[System.NonSerialized]
 	private Actor _actorPrefab = null;
@@ -32,7 +39,25 @@ public class Spawner : MonoBehaviour
 	private bool _canFire = false;
 
 	[System.NonSerialized]
-	private bool _isDestroyedByCollision = false;
+	private ProjectileLauncherBehaviour _projectileLauncherBehaviour = 0;
+
+	public Spawner SetActorSettings(ActorSettings actorSettings)
+	{
+		_actorSettings = actorSettings;
+		return this;
+	}
+	
+	public Spawner SetProjectileLauncherSettings(ProjectileLauncherSettings projectileLauncherSettings)
+	{
+		_projectileLauncherSettings = projectileLauncherSettings;
+		return this;
+	}
+	
+	public Spawner SetCollisionDamageSettings(CollisionDamageSettings collisionDamageSettings)
+	{
+		_collisionDamageSettings = collisionDamageSettings;
+		return this;
+	}
 
 	public Spawner SetActor(Actor prefab)
 	{
@@ -64,9 +89,9 @@ public class Spawner : MonoBehaviour
 		return this;
 	}
 	
-	public Spawner SetIsDestroyedByCollision(bool isDestroyedByCollision)
+	public Spawner SetProjectileLauncherBehaviour(ProjectileLauncherBehaviour projectileLauncherBehaviour)
 	{
-		_isDestroyedByCollision = isDestroyedByCollision;
+		_projectileLauncherBehaviour = projectileLauncherBehaviour;
 		return this;
 	}
 
@@ -88,25 +113,36 @@ public class Spawner : MonoBehaviour
 
 			if (_currentSpawnTime <= 0)
 			{
-				SpawnActor();
+				//SpawnActor();
+				SpawnActor_Refacto();
 				_currentSpawnTime = _spawnRate;
 			}
 		}
+	}
+
+	private void SpawnActor_Refacto()
+	{
+		var instance = _actorSettings.InstantiateActor(_path);
+
+		// Cache all getcomponents into a facade class ?
+		_projectileLauncherSettings.ApplyTo(instance.GetComponent<ProjectileLauncher>());
+		_collisionDamageSettings.ApplyTo(instance.GetComponent<CollisionDamageEmitter>(), instance.GetComponent<CollisionDamageReceiver>());
 	}
 
 	private void SpawnActor()
 	{
 		Actor instance = Instantiate(_actorPrefab);
 		instance.SetPath(_path, _isReverse);
-		instance.SetSpeed(_speed);
+		instance.SetMoveSpeed(_speed);
 
 		ProjectileLauncher fireable = instance.GetComponent<ProjectileLauncher>();
 		fireable.SetCanFire(_canFire);
+		fireable.SetProjectileLauncherBehaviour(_projectileLauncherBehaviour);
 
 		CollisionDamageEmitter collisionDamageEmitter = instance.GetComponent<CollisionDamageEmitter>();
 		if (collisionDamageEmitter != null)
 		{
-			collisionDamageEmitter.SetIsDestroyedByCollision(_isDestroyedByCollision);
+			// TODO AL : set life ?
 		}
 	}
 }

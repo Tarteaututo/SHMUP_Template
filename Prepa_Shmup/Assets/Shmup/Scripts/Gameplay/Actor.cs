@@ -37,7 +37,7 @@ public class Actor : MonoBehaviour
 		transform.position = _path.GetDestination(_currentPathIndex).position;
 	}
 
-	public void SetSpeed(float speed)
+	public void SetMoveSpeed(float speed)
 	{
 		_moveSpeed = speed;
 	}
