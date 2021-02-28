@@ -44,7 +44,6 @@ GameObject:
   - component: {fileID: 2614347901665480445}
   - component: {fileID: 810300523436418348}
   - component: {fileID: 8359429100137022573}
-  - component: {fileID: 262771556125105734}
   - component: {fileID: 6634229087546672605}
   m_Layer: 0
   m_Name: Actor.Red
@@ -171,21 +170,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _score: 1
---- !u!114 &262771556125105734
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2458663954699044144}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 820b7536adf2a374488dc62d1de4cfb3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damageable: {fileID: 2458663954699044147}
-  _collisionDamage: 1
-  _takeDamageOnCollision: 0
 --- !u!114 &6634229087546672605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,7 +183,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _selfDamageable: {fileID: 2458663954699044147}
-  _selfEmitter: {fileID: 262771556125105734}
+  _collisionDamage: 1
+  _takeDamageOnCollision: 0
+  _displayLogs: 0
 --- !u!1 &2458663955807818733
 GameObject:
   m_ObjectHideFlags: 0

@@ -65,15 +65,11 @@ public class CollisionDamageSettings
 	[SerializeField]
 	private bool _takeDamageOnCollision = false;
 
-	public void ApplyTo(CollisionDamageEmitter emitter, CollisionDamageReceiver receiver)
+	public void ApplyTo(CollisionDamageHandler collisionDamageHandler)
 	{
-		if (emitter != null)
+		if (collisionDamageHandler != null)
 		{
-			emitter.SetTakeDamageOnCollision(_takeDamageOnCollision);
-		}
-
-		if (receiver != null)
-		{
+			collisionDamageHandler.SetTakeDamageOnCollision(_takeDamageOnCollision);
 		}
 	}
 }
@@ -86,6 +82,9 @@ public class CollisionDamageSettings
 public class SpawnerSettings : ScriptableObject
 {
 	[SerializeField]
+	private float _spawnRate = 1f;
+
+	[SerializeField]
 	private ActorSettings _actorSettings = null;
 
 	[SerializeField]
@@ -94,37 +93,10 @@ public class SpawnerSettings : ScriptableObject
 	[SerializeField]
 	private CollisionDamageSettings _collisionDamageSettings = null;
 
-	[SerializeField]
-	private Actor _actorPrefab = null;
-
-	[SerializeField]
-	private float _actorMoveSpeed = 2f;
-
-	[SerializeField]
-	private bool isReverse = false;
-
-	[SerializeField]
-	private float _spawnRate = 1f;
-
-	[SerializeField]
-	private bool _canFire = false;
-
-	[SerializeField]
-	private ProjectileLauncherBehaviour _projectileLauncherBehaviour = ProjectileLauncherBehaviour.ActorForward;
-
 	public void Apply(Spawner spawner)
 	{
 		spawner.SetActorSettings(_actorSettings);
 		spawner.SetProjectileLauncherSettings(_projectileLauncherSettings);
 		spawner.SetCollisionDamageSettings(_collisionDamageSettings);
-
-		// TODO AL : REMOVE
-		// TODO AL : comment about the Builder patterns
-		spawner.SetActor(_actorPrefab)
-				.SetMoveSpeed(_actorMoveSpeed)
-				.SetIsReverse(isReverse)
-				.SetSpawnRate(_spawnRate)
-				.SetCanFire(_canFire)
-				.SetProjectileLauncherBehaviour(_projectileLauncherBehaviour);
 	}
 }

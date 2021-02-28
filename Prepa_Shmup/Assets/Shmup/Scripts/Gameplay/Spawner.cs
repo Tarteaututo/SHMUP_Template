@@ -59,42 +59,6 @@ public class Spawner : MonoBehaviour
 		return this;
 	}
 
-	public Spawner SetActor(Actor prefab)
-	{
-		_actorPrefab = prefab;
-		return this;
-	}
-
-	public Spawner SetSpawnRate(float spawnRate)
-	{
-		_spawnRate = spawnRate;
-		return this;
-	}
-
-	public Spawner SetMoveSpeed(float speed)
-	{
-		_speed = speed;
-		return this;
-	}
-
-	public Spawner SetIsReverse(bool isReverse)
-	{
-		_isReverse = isReverse;
-		return this;
-	}
-
-	public Spawner SetCanFire(bool canFire)
-	{
-		_canFire = canFire;
-		return this;
-	}
-	
-	public Spawner SetProjectileLauncherBehaviour(ProjectileLauncherBehaviour projectileLauncherBehaviour)
-	{
-		_projectileLauncherBehaviour = projectileLauncherBehaviour;
-		return this;
-	}
-
 	public void StartSpawner()
 	{
 		_isStarted = true;
@@ -126,7 +90,7 @@ public class Spawner : MonoBehaviour
 
 		// Cache all getcomponents into a facade class ?
 		_projectileLauncherSettings.ApplyTo(instance.GetComponent<ProjectileLauncher>());
-		_collisionDamageSettings.ApplyTo(instance.GetComponent<CollisionDamageEmitter>(), instance.GetComponent<CollisionDamageReceiver>());
+		_collisionDamageSettings.ApplyTo(instance.GetComponent<CollisionDamageHandler>());
 	}
 
 	private void SpawnActor()
@@ -138,11 +102,5 @@ public class Spawner : MonoBehaviour
 		ProjectileLauncher fireable = instance.GetComponent<ProjectileLauncher>();
 		fireable.SetCanFire(_canFire);
 		fireable.SetProjectileLauncherBehaviour(_projectileLauncherBehaviour);
-
-		CollisionDamageEmitter collisionDamageEmitter = instance.GetComponent<CollisionDamageEmitter>();
-		if (collisionDamageEmitter != null)
-		{
-			// TODO AL : set life ?
-		}
 	}
 }

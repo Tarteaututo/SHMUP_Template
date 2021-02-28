@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// TODO AL : add to wave manager list and bind it like spawners
 public class ProjectileLauncherEmitter : MonoBehaviour
 {
 	[SerializeField]
