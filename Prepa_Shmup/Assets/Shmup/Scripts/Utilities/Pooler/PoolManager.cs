@@ -17,12 +17,6 @@ public class PoolManager : GenericMBSingleton<PoolManager>
 
 	// TODO AL : do preconfiguration by editor with runtime fill from config
 	#region Methods
-	protected override void Awake()
-	{
-		base.Awake();
-		_runtimePoolItems = new Dictionary<PoolItem, Queue<PoolItem>>();
-	}
-
 	/// <summary>
 	/// Add a new PoolItem to the Pool list.
 	/// </summary>
@@ -33,14 +27,10 @@ public class PoolManager : GenericMBSingleton<PoolManager>
 		if (_poolItemsConfiguration.Contains(item) == false)
 		{
 			_poolItemsConfiguration.Add(item);
-			Queue<PoolItem> preWarmList = new Queue<PoolItem>(preWarmCount);
-			_runtimePoolItems.Add(item, preWarmList);
-			for (int i = 0; i < preWarmCount; i++)
-			{
-				preWarmList.Enqueue(InstantiateItem(item, false));
-			}
+			AddToRuntimeItem(item, preWarmCount);
 		}
 	}
+
 
 	/// <summary>
 	/// Remove a PoolItem from the Pool list.
@@ -121,6 +111,34 @@ public class PoolManager : GenericMBSingleton<PoolManager>
 		Debug.LogErrorFormat("{0}.ReturnToPool(null) Trying to return to pool an object that is doesn't present in runtime pool items.", GetType().Name);
 		return false;
 	}
+
+	protected override void Awake()
+	{
+		base.Awake();
+		Initialize();
+	}
+
+
+	private void Initialize()
+	{
+		_runtimePoolItems = new Dictionary<PoolItem, Queue<PoolItem>>();
+		for (int i = 0, length = _poolItemsConfiguration.Count; i < length; i++)
+		{
+			PoolItem item = _poolItemsConfiguration[i];
+			AddToRuntimeItem(item, item.PreWarmCount);
+		}
+	}
+
+	private void AddToRuntimeItem(PoolItem item, int preWarmCount)
+	{
+		Queue<PoolItem> preWarmList = new Queue<PoolItem>(preWarmCount);
+		_runtimePoolItems.Add(item, preWarmList);
+		for (int i = 0; i < preWarmCount; i++)
+		{
+			preWarmList.Enqueue(InstantiateItem(item, false));
+		}
+	}
+
 
 	private PoolItem InstantiateItem(PoolItem from, bool setActive = true)
 	{
