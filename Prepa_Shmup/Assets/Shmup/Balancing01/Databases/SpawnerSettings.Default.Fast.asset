@@ -10,12 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d0a273480aaa06c4c8b7fc9a89c180a4, type: 3}
-  m_Name: SpawnerSettings.Default.Reverse
+  m_Name: SpawnerSettings.Default.Fast
   m_EditorClassIdentifier: 
-  _actorPrefab: {fileID: 2458663954699044145, guid: 28bae515a5988bf42b5c88e36ed39aa3,
-    type: 3}
-  _actorMoveSpeed: 5
-  isReverse: 1
-  _spawnRate: 1
-  _canFire: 0
-  _isDestroyedByCollision: 1
+  _spawnRate: 0.1
+  _actorSettings:
+    _actorPrefab: {fileID: 2458663954699044145, guid: 0ccb770343159574f9f030c7389dbca5,
+      type: 3}
+    _actorMoveSpeed: 8
+    isReverse: 0
+  _projectileLauncherSettings:
+    _canFire: 0
+    _projectileLauncherBehaviour: 0
+  _collisionDamageSettings:
+    _takeDamageOnCollision: 0

@@ -89,7 +89,7 @@ public class SpawnerSettings : ScriptableObject
 
 	[SerializeField]
 	private ProjectileLauncherSettings _projectileLauncherSettings = null;
-	
+
 	[SerializeField]
 	private CollisionDamageSettings _collisionDamageSettings = null;
 

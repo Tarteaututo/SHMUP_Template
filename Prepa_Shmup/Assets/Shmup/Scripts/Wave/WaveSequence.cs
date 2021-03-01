@@ -1,11 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using Sirenix.OdinInspector;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [System.Serializable]
-public class SpawnSession
+public class WaveSequence
 {
+	#region Fields
 	[SerializeField]
-	private float _duration = 10f;
+	private float _duration = 0;
 
 	[SerializeField]
 	private float _exitDuration = 5f;
@@ -15,10 +18,15 @@ public class SpawnSession
 
 	[System.NonSerialized]
 	private List<Coroutine> _routine = null;
+	#endregion Fields
 
+	#region Properties
 	public float Duration => _duration;
 	public float ExitDuration => _exitDuration;
+	public float TotalDuration => Duration + ExitDuration;
+	#endregion Properties
 
+	#region Methods
 	public void Run(WaveManager waveManager)
 	{
 		ClearRoutines(waveManager);
@@ -55,4 +63,6 @@ public class SpawnSession
 			_routine = null;
 		}
 	}
+	#endregion Methods
+
 }

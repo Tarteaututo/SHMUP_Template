@@ -2,16 +2,8 @@
 using System.Threading;
 using UnityEngine;
 
-///
-/// Decommentez tout ce qui est en commentaire si vous voulez personnaliser des méthodes de spawn.
-/// En exemple, une méthode qui ajoute un second timer qui permet de personnaliser un peu plus le spawn.
-/// 
 
-public enum SpawnType
-{
-	Default = 0,
-	Alternative01
-}
+// TODO AL : changer waitbetweenspawn mais plutot dire : combien de spawn durant cette durée ?
 
 [System.Serializable]
 public class SpawnerBinder
@@ -27,10 +19,7 @@ public class SpawnerBinder
 	private int _spawnerID = 0;
 
 	[SerializeField]
-	private SpawnType _spawnType = SpawnType.Default;
-
-	[SerializeField]
-	private float _spawnDuration = 5f;
+	private float _duration = 5f;
 
 	[SerializeField]
 	private float _waitBetweenSpawns = 0f;
@@ -40,6 +29,10 @@ public class SpawnerBinder
 
 	[System.NonSerialized]
 	private Spawner _spawner = null;
+
+	#region Properties
+	public float Duration => _duration;
+	#endregion Properties
 
 	public void ResolveSpawner(WaveManager waveManager)
 	{
@@ -54,25 +47,7 @@ public class SpawnerBinder
 	public IEnumerator Run()
 	{
 		_spawnerSettings.Apply(_spawner);
-		// Commentez CETTE ligne et décommentez le reste si vous voulez utilisez plusieurs méthode de spawn.
-		//yield return RunMethod01();
-
-		//switch between methods
-		switch (_spawnType)
-		{
-			case SpawnType.Default:
-			default:
-			{
-				yield return RunMethod01();
-			}
-			break;
-			case SpawnType.Alternative01:
-			{
-				yield return new WaitForSeconds(_waitBeforeBeginSpawn);
-				yield return RunMethod01();
-			}
-			break;
-		}
+		yield return RunMethod01();
 	}
 
 	public void Stop()
@@ -82,12 +57,14 @@ public class SpawnerBinder
 
 	private IEnumerator RunMethod01()
 	{
+		yield return new WaitForSeconds(_waitBeforeBeginSpawn);
+
 		_spawner.StartSpawner();
+		yield return new WaitForSeconds(_duration);
 
-		yield return new WaitForSeconds(_spawnDuration);
 		_spawner.StopSpawner();
-
 		yield return new WaitForSeconds(_waitBetweenSpawns);
+
 		yield return RunMethod01();
 	}
 

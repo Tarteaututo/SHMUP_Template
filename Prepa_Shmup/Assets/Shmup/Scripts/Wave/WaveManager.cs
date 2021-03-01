@@ -28,7 +28,7 @@ public class WaveManager : MonoBehaviour
 	[ListDrawerSettings(ShowIndexLabels = true)]
 	[SerializeField]
 	private List<Spawner> _spawners = null;
-
+	
 	[HideInEditorMode, ShowInInspector, ReadOnly, InlineEditor]
 	[System.NonSerialized]
 	private List<Wave> _runtimeWaves = null;

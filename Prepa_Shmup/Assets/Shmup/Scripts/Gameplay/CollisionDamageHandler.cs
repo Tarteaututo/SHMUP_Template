@@ -1,15 +1,14 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-// TODO AL : rename to emitter and the other one to receiver
 /// <summary>
 /// Must be used with a rigidbody on the same gameobject
 /// 
-/// Works with CollisionDamageEmitter
 /// </summary>
 [RequireComponent(typeof(Damageable))]
 public class CollisionDamageHandler : MonoBehaviour
 {
+	#region Fields
 	[SerializeField]
 	private Damageable _selfDamageable = null;
 
@@ -19,10 +18,11 @@ public class CollisionDamageHandler : MonoBehaviour
 	[SerializeField]
 	private bool _takeDamageOnCollision = false;
 
-
 	[SerializeField]
 	private bool _displayLogs = false;
+	#endregion Fields
 
+	#region Methods
 	public void SetTakeDamageOnCollision(bool takeDamageOnCollision)
 	{
 		_takeDamageOnCollision = takeDamageOnCollision;
@@ -68,10 +68,6 @@ public class CollisionDamageHandler : MonoBehaviour
 	{
 		TryApplyCollisionDamage(args.other.GetComponentInParent<CollisionDamageHandler>());
 	}
+	#endregion Methods
+
 }
-
-//	private void OnTriggerEnter(Collider other)
-//	{
-//		CollisionDamageHandler otherColliderDamageHandler = other.GetComponentInParent<CollisionDamageHandler>();
-
-//	}
