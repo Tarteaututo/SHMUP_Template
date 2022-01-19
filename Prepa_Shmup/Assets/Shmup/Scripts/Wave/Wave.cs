@@ -100,7 +100,6 @@ public class Wave : ScriptableObject
 		_currentExitTime = -1f;
 		_currentSessionIndex = 0;
 		_currentTime = 0;
-
 	}
 
 	private void OnValidate()

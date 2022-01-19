@@ -17,11 +17,8 @@ public class Damageable : MonoBehaviour
 	[System.Serializable] // currenthealth, maxhealth
 	public class ReceiveDamageable_UnityEvent : UnityEvent<int, int> { }
 
-	[System.Serializable]
-	public class Damageable_UnityEvent : UnityEvent { }
-
 	public ReceiveDamageable_UnityEvent DamageReceived = null;
-	public Damageable_UnityEvent Destroyed = null;
+	public UnityEvent Destroyed = null;
 	#endregion Events
 
 	#region Methods

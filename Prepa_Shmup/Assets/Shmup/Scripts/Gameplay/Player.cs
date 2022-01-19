@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
 
 	[InfoBox("List of components that will be activated with the Player.")]
 	[SerializeField]
-	private List<Behaviour> _components  = null;
+	private List<Behaviour> _components = null;
 
 	public void Activate(bool isActive)
 	{
@@ -36,7 +36,6 @@ public class Player : MonoBehaviour
 	{
 		Vector3 direction = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0).normalized;
 		Vector3 desiredPosition = Vector3.MoveTowards(transform.position, transform.position + direction, Time.deltaTime * _moveSpeed);
-		//Vector3 desiredPosition = Vector3.Lerp(transform.position, transform.position + direction, Time.deltaTime * _moveSpeed);
 		transform.position = _worldLimits.Clamp(desiredPosition);
 	}
 }

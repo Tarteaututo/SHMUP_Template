@@ -55,12 +55,6 @@ public class Tiler : MonoBehaviour
 		StartTile(sender, true, endPosition);
 	}
 
-	/// <summary>
-	/// 
-	/// </summary>
-	/// <param name="specificTile"></param>
-	/// <param name="ignoreSpecificTile">ignore if true, select this tile if false</param>
-	/// <param name="startPosition"></param>
 	private void StartTile(Tile specificTile, bool ignoreSpecificTile, Vector3 startPosition)
 	{
 		Tile newSelection = null;

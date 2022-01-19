@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "SpawnerSettings", menuName = "GameSup/SpawnerSettings")]
@@ -14,9 +13,6 @@ public class SpawnerSettings : ScriptableObject
 
 	[SerializeField]
 	private bool isReverse = false;
-
-	//[SerializeField]
-	//private float _spawnRate = 1f;
 
 	[SerializeField]
 	private bool _canFire = false;
