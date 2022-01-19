@@ -7,7 +7,7 @@ public class Fireable : MonoBehaviour
 	[SerializeField]
 	private Projectile _projectilePrefab = null;
 
-	[SerializeField]
+	//[SerializeField]
 	private bool _canFire = false;
 
 	public void SetCanFire(bool canFire)

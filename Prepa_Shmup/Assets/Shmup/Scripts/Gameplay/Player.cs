@@ -34,8 +34,9 @@ public class Player : MonoBehaviour
 
 	private void Move()
 	{
-		Vector3 direction = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0).normalized;
-		Vector3 desiredPosition = Vector3.Lerp(transform.position, transform.position + direction, Time.deltaTime * _moveSpeed);
+		Vector3 direction = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0).normalized;
+		Vector3 desiredPosition = Vector3.MoveTowards(transform.position, transform.position + direction, Time.deltaTime * _moveSpeed);
+		//Vector3 desiredPosition = Vector3.Lerp(transform.position, transform.position + direction, Time.deltaTime * _moveSpeed);
 		transform.position = _worldLimits.Clamp(desiredPosition);
 	}
 }

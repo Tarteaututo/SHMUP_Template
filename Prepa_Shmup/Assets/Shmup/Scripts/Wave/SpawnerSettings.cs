@@ -15,18 +15,18 @@ public class SpawnerSettings : ScriptableObject
 	[SerializeField]
 	private bool isReverse = false;
 
-	[SerializeField]
-	private float _spawnRate = 1f;
+	//[SerializeField]
+	//private float _spawnRate = 1f;
 
 	[SerializeField]
 	private bool _canFire = false;
 
-	public void Apply(Spawner spawner)
+	public void Apply(Spawner spawner, float spawnRate)
 	{
 		spawner.SetActor(_actorPrefab);
 		spawner.SetMoveSpeed(_actorMoveSpeed);
 		spawner.SetIsReverse(isReverse);
-		spawner.SetSpawnRate(_spawnRate);
+		spawner.SetSpawnRate(spawnRate);
 		spawner.SetCanFire(_canFire);
 	}
 }

@@ -19,14 +19,12 @@ MonoBehaviour:
     - _spawnerSettings: {fileID: 11400000, guid: 481221513ac73f84282c27a86db3ec04,
         type: 2}
       _spawnerID: 0
-      _spawnType: 1
       _spawnDuration: 5
-      _secondSpawnDuration: 5
+      _spawnRate: 1
       _waitBetweenSpawns: 0
     - _spawnerSettings: {fileID: 11400000, guid: f9c3af5b35589d2408224c799cb607c2,
         type: 2}
       _spawnerID: 1
-      _spawnType: 0
       _spawnDuration: 5
-      _secondSpawnDuration: 5
+      _spawnRate: 1
       _waitBetweenSpawns: 0
