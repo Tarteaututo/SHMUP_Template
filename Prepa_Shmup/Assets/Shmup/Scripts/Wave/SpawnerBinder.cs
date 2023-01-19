@@ -26,6 +26,9 @@ public class SpawnerBinder
 	private float _spawnDuration = 5f;
 
 	[SerializeField]
+	private float _waitBeforeSpawns = 0f;
+	
+	[SerializeField]
 	private float _waitBetweenSpawns = 3f;
 
 	[System.NonSerialized]
@@ -45,7 +48,8 @@ public class SpawnerBinder
 	{
 		_spawnerSettings.Apply(_spawner, _spawnRate);
 
-		yield return RunMethod01();
+        yield return new WaitForSeconds(_waitBeforeSpawns);
+        yield return RunMethod01();
 	}
 
 	public void Stop()
@@ -55,7 +59,7 @@ public class SpawnerBinder
 
 	private IEnumerator RunMethod01()
 	{
-		_spawner.StartSpawner();
+        _spawner.StartSpawner();
 
 		yield return new WaitForSeconds(_spawnDuration);
 		_spawner.StopSpawner();
